@@ -1,0 +1,53 @@
+.SurveyList {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+
+    position: relative;
+}
+
+.SurveyList-Header {
+    height: 60px;
+
+    box-sizing: border-box;
+    padding: 14px 16px;
+
+    background-color: #1976d2;
+    color: #fff;
+
+    box-shadow: 0 3px 4px #ddd;
+
+    flex: 0 0 auto;
+}
+
+.SurveyList-Content {
+    overflow-y: scroll;
+
+    flex: 1 1 1px;
+}
+
+
+.SurveyList-Create {
+    text-align: center;
+    padding-top: 8px;
+
+    box-shadow: -5px 0 15px #ddd;
+    bottom: 24px;
+    right: 24px;
+
+    height: 60px;
+
+    color: #fff;
+
+    flex: 0 0 auto;
+}
+
+.SurveyList-Create .MuiButtonBase-root {
+    background-color: #1976d2;
+}
+
+.SurveyList-Subtitle.MuiListSubheader-sticky {
+    background-color: #4F9DE9;
+
+    color: #fff;
+    box-shadow: 0 3px 4px #ddd;
+}
