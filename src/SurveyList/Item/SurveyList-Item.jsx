@@ -8,10 +8,10 @@ import './SurveyList-Item.css';
 const cnSurveyList = cn('SurveyList');
 
 export const SurveyListItem = function (props) {
-    const { name } = props;
+    const { name, selected } = props;
 
     return (
-        <div className={cnSurveyList('Item')}>
+        <div className={cnSurveyList('Item', [selected && cnSurveyList('Item_selected')])}>
             <ListItem button>
                 <ListItemText>{name}</ListItemText>
             </ListItem>

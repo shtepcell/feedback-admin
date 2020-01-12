@@ -1,0 +1,15 @@
+.Survey-Header {
+    height: 60px;
+
+    background-color: #1976d2;
+
+    color: #fff;
+}
+
+.Survey-Tabs .MuiTabs-fixed {
+    margin-top: 12px;
+}
+
+.Survey-Content {
+    padding: 24px;
+}

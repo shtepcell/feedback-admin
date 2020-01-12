@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
-import Fab from '@material-ui/core/Fab';
+import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { SurveyListItem } from './Item/SurveyList-Item';
@@ -24,7 +24,7 @@ const names = [
     'Опрос с очень сильно длинным названием, которое должно вылезти за границы', 'Какой-то опрос',
 ];
 
-export const ServeyList = function () {
+export const SurveyList = function () {
     return (
         <Grid
             className={cnSurveyList()}
@@ -39,9 +39,9 @@ export const ServeyList = function () {
             <div className={cnSurveyList('Content')}>
                 <List component="nav">
                     <ListSubheader className={cnSurveyList('Subtitle')}>Активные опросы</ListSubheader>
-                    {names.map(item => (
+                    {names.map((item, index) => (
                         <>
-                            <SurveyListItem name={item} />
+                            <SurveyListItem name={item} selected={index === 4} />
                             <Divider />
                         </>
                     ))}
@@ -55,10 +55,10 @@ export const ServeyList = function () {
                 </List>
             </div>
             <div className={cnSurveyList('Create')}>
-                <Fab variant="extended" color="primary" aria-label="add">
+                <Button aria-label="add">
                     <AddIcon />
                     Добавить опрос
-                </Fab>
+                </Button>
             </div>
         </Grid>
     );

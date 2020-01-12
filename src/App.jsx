@@ -2,7 +2,8 @@ import React from 'react';
 import { cn } from '@bem-react/classname';
 
 import Grid from '@material-ui/core/Grid';
-import { ServeyList } from './SurveyList';
+import { SurveyList } from './SurveyList';
+import { Survey } from './Survey';
 
 import './App.css';
 
@@ -13,9 +14,11 @@ function App() {
         <div className={cnApp()}>
             <Grid className={cnApp('Layout')} container spacing={0}>
                 <Grid item xs={4}>
-                    <ServeyList />
+                    <SurveyList />
                 </Grid>
-                <Grid container item xs={8} spacing={0} />
+                <Grid item xs={8}>
+                    <Survey />
+                </Grid>
             </Grid>
         </div>
     );
