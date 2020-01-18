@@ -1,0 +1,34 @@
+.Question {
+    margin: 24px 0;
+}
+
+.Question-Head {
+    display: flex;
+}
+
+.Question .Question-Type {
+    margin-left: 24px;
+    min-width: 160px;
+}
+
+.Question .Question-Subtitle {
+    margin: 16px 0;
+}
+
+.Question .Question-Variants {
+    padding-left: 36px;
+}
+
+.Question .Question-Variant {
+    display: flex;
+}
+
+.Question .Question-VariantDelete {
+    width: 40px;
+
+    margin-left: 12px;
+}
+
+.Question .Question-AddVariant {
+    margin: 18px 0;
+}

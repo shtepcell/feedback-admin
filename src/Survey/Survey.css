@@ -11,5 +11,54 @@
 }
 
 .Survey-Content {
+    flex: 1 1 auto;
+
     padding: 24px;
+}
+
+.Survey-Layout {
+    display: flex;
+
+    height: calc(100vh - 60px);
+
+    flex-direction: column;
+}
+
+.Survey {
+    overflow: hidden;
+}
+
+.Survey .Survey-Title {
+    margin-bottom: 36px;
+}
+
+.Survey .Survey-DateStart {
+    margin-right: 24px;
+}
+
+.Survey .Survey-Name {
+    margin-bottom: 24px;
+}
+
+.Survey .Survey-Actions {
+    box-sizing: border-box;
+    flex: 0 0 40px;
+
+    width: 100%;
+    padding: 8px 12px;
+
+    box-shadow: 0 -5px 30px #ddd;
+
+    height: 52px;
+
+    color: #fff;
+}
+
+.Survey .Survey-Actions button {
+    margin-right: 12px;
+    margin-bottom: 24px;
+}
+
+.Survey .Survey-Actions button:last-child {
+    float: right;
 }
