@@ -13,6 +13,7 @@
 .Survey-Content {
     flex: 1 1 auto;
 
+    overflow: scroll;
     padding: 24px;
 }
 

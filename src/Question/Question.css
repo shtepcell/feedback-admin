@@ -1,5 +1,28 @@
 .Question {
-    margin: 24px 0;
+    position: relative;
+
+    padding: 24px 0;
+
+
+    display: flex;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.Question-LeftSide {
+    flex: 0 0 36px;
+}
+
+.Question-RightSide {
+    flex: 0 0 40px;
+}
+
+.Question-MidleSide {
+    flex: 1 1 36px;
+}
+
+.Question-Number {
+    line-height: 40px;
 }
 
 .Question-Head {
@@ -21,14 +44,30 @@
 
 .Question .Question-Variant {
     display: flex;
+
+    margin-bottom: 16px;
 }
 
 .Question .Question-VariantDelete {
     width: 40px;
-
+    height: 40px;
     margin-left: 12px;
 }
 
 .Question .Question-AddVariant {
     margin: 18px 0;
+}
+
+.Question .Question-Alert {
+    position: absolute;
+    z-index: 12;
+    bottom: 60px;
+    right: 16px;
+
+    margin: 12px 0;
+
+
+    /* display: none; */
+
+    transition: all .3ms
 }

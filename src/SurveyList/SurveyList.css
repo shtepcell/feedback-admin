@@ -1,5 +1,4 @@
 .SurveyList {
-    /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
     height: 100%;
     overflow: hidden;
     position: relative;
@@ -19,8 +18,9 @@
 
 .SurveyList-Content {
     overflow-y: scroll;
-
     flex: 1 1 1px;
+
+    border-right: 1px solid #e3e3e3;
 }
 
 
@@ -44,4 +44,27 @@
     background-color: #4F9DE9;
 
     color: #fff;
+}
+
+.SurveyList-NoPolls {
+    margin: 24px 12px;
+
+    font-weight: 500;
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.SurveyList-Arrow {
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+
+    margin: 24px 0;
+
+    background-image: url('./assets/arrow.svg');
+    background-size: contain;
+
+    transform: rotateZ(90deg);
 }

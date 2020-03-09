@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { cn } from '@bem-react/classname';
 
 import Typography from '@material-ui/core/Typography';
@@ -7,24 +7,29 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import { SurveyListItem } from './Item/SurveyList-Item';
 
 import './SurveyList.css';
 
 const cnSurveyList = cn('SurveyList');
 
-const names = [
-    'Опрос 1', 'Опрос с длинным названием', 'Название опроса', 'Вышел на крыльцо почесать свое ...?',
-    'Опрос с очень сильно длинным названием, которое должно вылезти за границы', 'Какой-то опрос',
-    'Опрос 1', 'Опрос с длинным названием', 'Название опроса', 'Вышел на крыльцо почесать свое ...?',
-    'Опрос с очень сильно длинным названием, которое должно вылезти за границы', 'Какой-то опрос', 'Опрос 1', 'Опрос с длинным названием', 'Название опроса', 'Вышел на крыльцо почесать свое ...?',
-    'Опрос с очень сильно длинным названием, которое должно вылезти за границы', 'Какой-то опрос', 'Опрос 1', 'Опрос с длинным названием', 'Название опроса', 'Вышел на крыльцо почесать свое ...?',
-    'Опрос с очень сильно длинным названием, которое должно вылезти за границы', 'Какой-то опрос', 'Опрос 1', 'Опрос с длинным названием', 'Название опроса', 'Вышел на крыльцо почесать свое ...?',
-    'Опрос с очень сильно длинным названием, которое должно вылезти за границы', 'Какой-то опрос',
-];
+const texts = {
+    'polls-not-found': 'Не найдено ни одного опроса',
+    'create-the-poll': 'Создайте первый нажав кнопку "Добавить опрос" внизу страницы',
+};
 
-export const SurveyList = function () {
+export const SurveyList = function (props) {
+    const { onAddClick, onSelectSurvey, polls } = props;
+
+    const onClickSurvey = useCallback((id) => () => onSelectSurvey(id));
+
+    const getSurvey = ({ name, _id }) => (
+        <>
+            <SurveyListItem name={name} selected={false} onClick={onClickSurvey(_id)} />
+            <Divider />
+        </>
+    );
+
     return (
         <Grid
             className={cnSurveyList()}
@@ -36,26 +41,24 @@ export const SurveyList = function () {
             <div className={cnSurveyList('Header')}>
                 <Typography variant="h6">Список опросов</Typography>
             </div>
+
             <div className={cnSurveyList('Content')}>
                 <List component="nav">
-                    <ListSubheader className={cnSurveyList('Subtitle')}>Активные опросы</ListSubheader>
-                    {names.map((item, index) => (
-                        <>
-                            <SurveyListItem name={item} selected={index === 4} />
-                            <Divider />
-                        </>
-                    ))}
-                    <ListSubheader className={cnSurveyList('Subtitle')}>Завершенные опросы</ListSubheader>
-                    {names.map(item => (
-                        <>
-                            <SurveyListItem name={item} />
-                            <Divider />
-                        </>
-                    ))}
+                    {polls.length ? polls.map(getSurvey) : (
+                        <div className={cnSurveyList('NoPolls')}>
+                            {texts['polls-not-found']}
+                            <br />
+                            <br />
+                            {texts['create-the-poll']}
+                            <br />
+                            <div className={cnSurveyList('Arrow')} />
+                        </div>
+                    )}
                 </List>
             </div>
+
             <div className={cnSurveyList('Create')}>
-                <Button aria-label="add">
+                <Button aria-label="add" onClick={onAddClick}>
                     <AddIcon />
                     Добавить опрос
                 </Button>
